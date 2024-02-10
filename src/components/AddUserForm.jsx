@@ -59,7 +59,7 @@ const AddUserForm = ({ onAddUser }) => {
   };
   
   return (
-    <div className="max-w-md mx-auto bg-white rounded p-4 border border-gray-300">
+    <div className="max-w-md mx-auto bg-white rounded p-4 border border-gray-400">
       <form>
         <table className="w-full">
           <tbody>
@@ -197,7 +197,7 @@ const AddUserForm = ({ onAddUser }) => {
           <button 
             type="button" 
             onClick={handleAddUser}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             Add User
           </button>

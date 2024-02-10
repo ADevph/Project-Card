@@ -10,15 +10,15 @@ const UserCard = ({ user }) => {
     const company = user?.company || {};
 
     return (
-        <div className="card card-side bg-base-100 shadow-xl">
+        <div className=" bg-sky-100 bg-opacity-30 shadow-lg rounded-lg">
             <figure>
                 <div>
                     <img src={user.avatar ? user.avatar : user.image} alt={fullName} />
                 </div>
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
-                    <Link to={`/user/${user?.id}`}>{fullName}</Link>
+                <h2 className=" font-bold ">
+                    <Link to={`/user/${user?.id}`}>Fullname: <span className='text-blue-600'>{fullName}</span></Link>
                 </h2>
                 <p><strong>Email:</strong> {email}</p>
                 <p>
