@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AddUserForm = ({ onAddUser }) => {
   const [formData, setFormData] = useState({
@@ -20,9 +21,18 @@ const AddUserForm = ({ onAddUser }) => {
     }));
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleAddUser = () => {
+    // Call the onAddUser function
     onAddUser(formData);
+
+    // Show SweetAlert after adding the user
+    Swal.fire({
+      title: "Good job!",
+      text: "User added successfully!",
+      icon: "success"
+    });
+
+    // Clear the form data
     setFormData({
       avatar: '',
       firstName: '',
@@ -36,11 +46,11 @@ const AddUserForm = ({ onAddUser }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <input
         type="text"
         name="avatar"
-        placeholder=" Please Give Avatar URL"
+        placeholder="Please Give Avatar URL"
         value={formData.avatar}
         onChange={handleChange}
         required
@@ -101,7 +111,7 @@ const AddUserForm = ({ onAddUser }) => {
         onChange={handleChange}
         required
       />
-      <button type="submit">Add User</button>
+      <button type="button" onClick={handleAddUser}>Add User</button>
     </form>
   );
 };
