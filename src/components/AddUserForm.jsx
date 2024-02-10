@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 const AddUserForm = ({ onAddUser }) => {
   const [formData, setFormData] = useState({
-    avatar: '', 
+    avatar: '',
     firstName: '',
     lastName: '',
     email: '',
-    address: '',
-    state: '',
+    address: '', // Changed from state to address
     city: '',
-    companyName: ''
+    state: '',
+    companyName: '' // Changed from company to companyName
   });
 
   const handleChange = event => {
@@ -23,21 +23,20 @@ const AddUserForm = ({ onAddUser }) => {
   const handleSubmit = event => {
     event.preventDefault();
     onAddUser(formData);
-    // Clear form fields after submission
     setFormData({
       avatar: '',
       firstName: '',
       lastName: '',
       email: '',
-      street: '',
-      suite: '',
+      address: '',
       city: '',
-      companyName: ''
+      state: '',
+      companyName: '' // Changed from company to companyName
     });
   };
 
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="avatar"
@@ -74,9 +73,10 @@ const AddUserForm = ({ onAddUser }) => {
         type="text"
         name="address"
         placeholder="Address"
-        value={formData.adress}
+        value={formData.address}
         onChange={handleChange}
       />
+
       <input
         type="text"
         name="city"
@@ -93,9 +93,9 @@ const AddUserForm = ({ onAddUser }) => {
       />
       <input
         type="text"
-        name="companyName"
+        name="companyName" // Changed from company to companyName
         placeholder="Company Name"
-        value={formData.companyName}
+        value={formData.companyName} // Changed from company to companyName
         onChange={handleChange}
         required
       />

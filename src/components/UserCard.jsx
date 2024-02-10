@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserCard = ({ user }) => {
+
     const address = user?.address || {};
-    const image = user?.avatar || ''; // Ensure a default value for the image URL
+    const image = user?.avatar || '';
     const fullName = `${user?.firstName || ''} ${user?.lastName || ''}`;
     const email = user?.email || '';
-    const userAddress = user?.address || {};
-    const company = user?.company || {};
+    const company = user?.company || {}; // Changed from companyName to company
 
     return (
         <div className="card card-side bg-base-100 shadow-xl">
             <figure>
                 <div>
-                    <img src={user.image} alt={fullName} />
+                    <img src={user.avatar} alt={fullName} /> {/* Changed from user.image to user.avatar */}
                 </div>
             </figure>
             <div className="card-body">
@@ -23,9 +23,9 @@ const UserCard = ({ user }) => {
                 <p><strong>Email:</strong> {email}</p>
                 <p>
                     <strong>Address:</strong>{' '}
-                    {`${user?.address.address || ''}, ${user?.address.city || ''}, ${user?.address.state || ''}`}
+                    {`${address.address || ''}, ${address.city || ''}, ${address.state || ''}`} 
                 </p>
-                <p><strong>Company:</strong> {company.name || ''}</p>
+                <p><strong>Company:</strong> {company.name || ''}</p> {/* Changed from companyName to company */}
             </div>
         </div>
     );
