@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
+import AddUserForm from './AddUserForm';
 
 const Userlist = () => {
   const [users, setUsers] = useState([]);
@@ -45,6 +46,16 @@ const Userlist = () => {
     }
   };
 
+
+  const handleAddUser = userData => {
+    const newUser = {
+      id: Date.now(), 
+      ...userData
+    };
+    setUsers(prevUsers => [...prevUsers, newUser]);
+  };
+
+
   return (
     <div className="p-4">
       <div className="flex justify-between mb-4">
@@ -61,6 +72,13 @@ const Userlist = () => {
           <button onClick={() => handleSortChange('company.name')}>Sort by Company</button>
         </div>
       </div>
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+  <h2 className="text-2xl mb-4 ">Add New User</h2>
+  <div className="border border-gray-300 p-4 rounded-lg">
+    <AddUserForm onAddUser={handleAddUser} />
+  </div>
+</div>
+
       <div className="flex flex-wrap justify-center">
         {filteredUsers.map(user => (
           <div key={user.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-2">
@@ -68,6 +86,7 @@ const Userlist = () => {
           </div>
         ))}
       </div>
+
     </div>
   );
 };
