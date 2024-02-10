@@ -6,10 +6,10 @@ const AddUserForm = ({ onAddUser }) => {
     firstName: '',
     lastName: '',
     email: '',
-    address: '', // Changed from state to address
+    address: '',
     city: '',
     state: '',
-    companyName: '' // Changed from company to companyName
+    companyName: '' 
   });
 
   const handleChange = event => {
@@ -31,7 +31,7 @@ const AddUserForm = ({ onAddUser }) => {
       address: '',
       city: '',
       state: '',
-      companyName: '' // Changed from company to companyName
+      companyName: ''
     });
   };
 
@@ -75,14 +75,15 @@ const AddUserForm = ({ onAddUser }) => {
         placeholder="Address"
         value={formData.address}
         onChange={handleChange}
+        required
       />
-
       <input
         type="text"
         name="city"
         placeholder="City"
         value={formData.city}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
@@ -90,12 +91,13 @@ const AddUserForm = ({ onAddUser }) => {
         placeholder="State"
         value={formData.state}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
-        name="companyName" // Changed from company to companyName
+        name="companyName"
         placeholder="Company Name"
-        value={formData.companyName} // Changed from company to companyName
+        value={formData.companyName}
         onChange={handleChange}
         required
       />
@@ -103,5 +105,6 @@ const AddUserForm = ({ onAddUser }) => {
     </form>
   );
 };
+
 
 export default AddUserForm;
