@@ -6,8 +6,8 @@ const AddUserForm = ({ onAddUser }) => {
     firstName: '',
     lastName: '',
     email: '',
-    street: '',
-    suite: '',
+    address: '',
+    state: '',
     city: '',
     companyName: ''
   });
@@ -72,16 +72,9 @@ const AddUserForm = ({ onAddUser }) => {
       />
       <input
         type="text"
-        name="street"
-        placeholder="Street"
-        value={formData.street}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="suite"
-        placeholder="Suite"
-        value={formData.suite}
+        name="address"
+        placeholder="Address"
+        value={formData.adress}
         onChange={handleChange}
       />
       <input
@@ -89,6 +82,13 @@ const AddUserForm = ({ onAddUser }) => {
         name="city"
         placeholder="City"
         value={formData.city}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="state"
+        placeholder="State"
+        value={formData.state}
         onChange={handleChange}
       />
       <input
