@@ -1,63 +1,65 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddUserForm = ({ onAddUser }) => {
   const [formData, setFormData] = useState({
-    avatar: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    state: '',
-    companyName: '' 
+    avatar: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    companyName: "",
   });
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleAddUser = () => {
-    if (!formData.avatar ||
-        !formData.firstName ||
-        !formData.lastName ||
-        !formData.email ||
-        !formData.address ||
-        !formData.city ||
-        !formData.state ||
-        !formData.companyName) {
+    if (
+      !formData.avatar ||
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.address ||
+      !formData.city ||
+      !formData.state ||
+      !formData.companyName
+    ) {
       Swal.fire({
         title: "Error!",
         text: "Please fill in all required fields.",
-        icon: "error"
+        icon: "error",
       });
-      return; 
+      return;
     }
-  
+
     onAddUser(formData);
-  
+
     Swal.fire({
       title: "Good job!",
       text: "User added successfully!",
-      icon: "success"
+      icon: "success",
     });
-  
+
     setFormData({
-      avatar: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      city: '',
-      state: '',
-      companyName: ''
+      avatar: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      city: "",
+      state: "",
+      companyName: "",
     });
   };
-  
+
   return (
     <div className="max-w-md mx-auto bg-white rounded p-4 border border-gray-400">
       <form>
@@ -65,7 +67,9 @@ const AddUserForm = ({ onAddUser }) => {
           <tbody>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="avatar" className="block text-sm font-semibold">Avatar URL:</label>
+                <label htmlFor="avatar" className="block text-sm font-semibold">
+                  Avatar URL:
+                </label>
               </td>
               <td>
                 <input
@@ -81,7 +85,12 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="firstName" className="block text-sm font-semibold">First Name:</label>
+                <label
+                  htmlFor="firstName"
+                  className="block text-sm font-semibold"
+                >
+                  First Name:
+                </label>
               </td>
               <td>
                 <input
@@ -97,7 +106,12 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="lastName" className="block text-sm font-semibold">Last Name:</label>
+                <label
+                  htmlFor="lastName"
+                  className="block text-sm font-semibold"
+                >
+                  Last Name:
+                </label>
               </td>
               <td>
                 <input
@@ -113,7 +127,9 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="email" className="block text-sm font-semibold">Email:</label>
+                <label htmlFor="email" className="block text-sm font-semibold">
+                  Email:
+                </label>
               </td>
               <td>
                 <input
@@ -129,7 +145,12 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="address" className="block text-sm font-semibold">Address:</label>
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-semibold"
+                >
+                  Address:
+                </label>
               </td>
               <td>
                 <input
@@ -145,7 +166,9 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="city" className="block text-sm font-semibold">City:</label>
+                <label htmlFor="city" className="block text-sm font-semibold">
+                  City:
+                </label>
               </td>
               <td>
                 <input
@@ -161,7 +184,9 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="state" className="block text-sm font-semibold">State:</label>
+                <label htmlFor="state" className="block text-sm font-semibold">
+                  State:
+                </label>
               </td>
               <td>
                 <input
@@ -177,7 +202,12 @@ const AddUserForm = ({ onAddUser }) => {
             </tr>
             <tr>
               <td className="pr-4 pb-2">
-                <label htmlFor="companyName" className="block text-sm font-semibold">Company Name:</label>
+                <label
+                  htmlFor="companyName"
+                  className="block text-sm font-semibold"
+                >
+                  Company Name:
+                </label>
               </td>
               <td>
                 <input
@@ -194,8 +224,8 @@ const AddUserForm = ({ onAddUser }) => {
           </tbody>
         </table>
         <div className="mt-4">
-          <button 
-            type="button" 
+          <button
+            type="button"
             onClick={handleAddUser}
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
