@@ -22,17 +22,30 @@ const AddUserForm = ({ onAddUser }) => {
   };
 
   const handleAddUser = () => {
-    // Call the onAddUser function
+    if (!formData.avatar ||
+        !formData.firstName ||
+        !formData.lastName ||
+        !formData.email ||
+        !formData.address ||
+        !formData.city ||
+        !formData.state ||
+        !formData.companyName) {
+      Swal.fire({
+        title: "Error!",
+        text: "Please fill in all required fields.",
+        icon: "error"
+      });
+      return; 
+    }
+  
     onAddUser(formData);
-
-    // Show SweetAlert after adding the user
+  
     Swal.fire({
       title: "Good job!",
       text: "User added successfully!",
       icon: "success"
     });
-
-    // Clear the form data
+  
     setFormData({
       avatar: '',
       firstName: '',
@@ -44,7 +57,7 @@ const AddUserForm = ({ onAddUser }) => {
       companyName: ''
     });
   };
-
+  
   return (
     <form>
       <input
