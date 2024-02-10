@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
 
-const Userlist = () => {
+const UserListPage = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Userlist = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4 p-4">
+    <div className="flex flex-wrap justify-center p-4">
       {users.map(user => (
         <UserCard key={user.id} user={user} />
       ))}
@@ -20,4 +20,4 @@ const Userlist = () => {
   );
 };
 
-export default Userlist;
+export default UserListPage;

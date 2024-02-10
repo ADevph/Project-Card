@@ -5,7 +5,10 @@ const UserCard = ({ user }) => {
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure>
+        <div className= ''>
         <img src={user.image} alt={`${user.firstName} ${user.lastName}`} />
+
+        </div>
       </figure>
       <div className="card-body">
         <h2 className="card-title">
